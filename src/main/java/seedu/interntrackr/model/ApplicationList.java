@@ -66,7 +66,7 @@ public class ApplicationList {
      *
      * @return The full list of applications.
      */
-    public ArrayList<Application> getAllApplications() {
+    public ArrayList<Application> getApplications() {
         return applications;
     }
 }

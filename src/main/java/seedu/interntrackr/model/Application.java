@@ -17,7 +17,7 @@ public class Application {
     public Application(String company, String role) {
         this.company = company;
         this.role = role;
-        this.status = "Pending";
+        this.status = "Applied";
     }
 
     /**
@@ -88,4 +88,3 @@ public class Application {
         return company + " | " + role + " | " + status;
     }
 }
-
