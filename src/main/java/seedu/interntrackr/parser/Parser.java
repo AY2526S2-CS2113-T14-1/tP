@@ -1,6 +1,13 @@
 package seedu.interntrackr.parser;
 
-import seedu.interntrackr.command.*;
+import seedu.interntrackr.command.AddCommand;
+import seedu.interntrackr.command.Command;
+import seedu.interntrackr.command.DeleteCommand;
+import seedu.interntrackr.command.ExitCommand;
+import seedu.interntrackr.command.FilterCommand;
+import seedu.interntrackr.command.ListCommand;
+import seedu.interntrackr.command.OverviewCommand;
+import seedu.interntrackr.command.StatusCommand;
 import seedu.interntrackr.exception.InternTrackrException;
 
 /**
