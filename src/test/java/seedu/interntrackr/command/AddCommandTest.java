@@ -3,7 +3,7 @@ package seedu.interntrackr.command;
 import org.junit.jupiter.api.Test;
 import seedu.interntrackr.model.ApplicationList;
 import seedu.interntrackr.ui.Ui;
-import seedu.interntrackr.storage.Storage; // Add this import
+import seedu.interntrackr.storage.Storage;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
