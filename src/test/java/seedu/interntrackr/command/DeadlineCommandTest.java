@@ -68,7 +68,7 @@ public class DeadlineCommandTest {
     }
 
     @Test
-    public void execute_validIndex_setsDeadlineOnSpecifiedApplication() throws Exception {
+    public void execute_validIndex_setsDeadlineOnSpecifiedApplication() {
         DeadlineCommand command = new DeadlineCommand(1, "OA", LocalDate.of(2026, 3, 15));
 
         command.execute(applications, ui, storage);
@@ -79,7 +79,7 @@ public class DeadlineCommandTest {
     }
 
     @Test
-    public void execute_validIndex_doesNotModifyOtherApplications() throws Exception {
+    public void execute_validIndex_doesNotModifyOtherApplications() {
         DeadlineCommand command = new DeadlineCommand(1, "OA", LocalDate.of(2026, 3, 15));
 
         command.execute(applications, ui, storage);
@@ -88,7 +88,7 @@ public class DeadlineCommandTest {
     }
 
     @Test
-    public void execute_validIndex_showsCorrectSuccessMessage() throws Exception {
+    public void execute_validIndex_showsCorrectSuccessMessage() {
         DeadlineCommand command = new DeadlineCommand(1, "OA", LocalDate.of(2026, 3, 15));
 
         command.execute(applications, ui, storage);
