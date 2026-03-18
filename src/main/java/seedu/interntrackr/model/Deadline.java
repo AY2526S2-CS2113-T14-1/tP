@@ -7,8 +7,8 @@ import java.util.Objects;
  * Represents a single deadline.
  */
 public class Deadline {
-    private String deadlineType;
-    private LocalDate dueDate;
+    private final String deadlineType;
+    private final LocalDate dueDate;
     private boolean isDone;
 
     /**

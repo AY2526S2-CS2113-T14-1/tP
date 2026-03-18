@@ -17,9 +17,9 @@ import seedu.interntrackr.ui.Ui;
 public class DeadlineCommand extends Command {
     private static final Logger logger = Logger.getLogger(DeadlineCommand.class.getName());
 
-    private int index;
-    private String deadlineType;
-    private LocalDate dueDate;
+    private final int index;
+    private final String deadlineType;
+    private final LocalDate dueDate;
 
     /**
      * Constructs a DeadlineCommand for the specified application index, deadline type, and due date.
