@@ -2,7 +2,11 @@ package seedu.interntrackr.parser;
 
 import java.util.logging.Logger;
 
-import seedu.interntrackr.command.*;
+import seedu.interntrackr.command.Command;
+import seedu.interntrackr.command.ClearCommand;
+import seedu.interntrackr.command.OverviewCommand;
+import seedu.interntrackr.command.ListCommand;
+import seedu.interntrackr.command.ExitCommand;
 import seedu.interntrackr.exception.InternTrackrException;
 
 /**
