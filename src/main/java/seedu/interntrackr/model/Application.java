@@ -16,7 +16,7 @@ public class Application {
     private String company;
     private String role;
     private String status;
-    private Deadline deadline;
+    private DeadlineList deadlines;
 
     /**
      * Constructs an Application with the given company and role.
@@ -30,7 +30,7 @@ public class Application {
         this.company = company;
         this.role = role;
         this.status = "Applied";
-        this.deadline = null;
+        this.deadlines = new DeadlineList();
         logger.fine("Created application: " + company + " | " + role);
     }
 
@@ -48,27 +48,27 @@ public class Application {
         this.company = company;
         this.role = role;
         this.status = status;
-        this.deadline = null;
+        this.deadlines = new DeadlineList();
         logger.fine("Created application: " + company + " | " + role + " | " + status);
     }
 
     /**
-     * Constructs an Application with the given company, role, status, and deadline.
+     * Constructs an Application with the given company, role, status, and deadlines.
      *
      * @param company  The name of the company.
      * @param role     The role applied for.
      * @param status   The current application status.
-     * @param deadline The deadline of this application.
+     * @param deadlines The deadlines of this application.
      */
-    public Application(String company, String role, String status, Deadline deadline) {
+    public Application(String company, String role, String status, DeadlineList deadlines) {
         assert company != null && !company.isEmpty() : "Company name cannot be null or empty";
         assert role != null && !role.isEmpty() : "Role cannot be null or empty";
         assert status != null && !status.isEmpty() : "Status cannot be null or empty";
         this.company = company;
         this.role = role;
         this.status = status;
-        this.deadline = deadline;
-        logger.fine("Created application with deadline: " + company + " | " + role);
+        this.deadlines = deadlines;
+        logger.fine("Created application with deadlines: " + company + " | " + role);
     }
 
     /**
@@ -142,21 +142,21 @@ public class Application {
     }
 
     /**
-     * Returns the deadline of this application.
+     * Returns the deadlines of this application.
      *
-     * @return The deadline.
+     * @return The deadlines.
      */
-    public Deadline getDeadline() {
-        return deadline;
+    public DeadlineList getDeadlines() {
+        return deadlines;
     }
 
     /**
-     * Sets the deadline of this application.
+     * Sets the deadlines of this application.
      *
-     * @param deadline The new deadline.
+     * @param deadlines The new deadlines.
      */
-    public void setDeadline(Deadline deadline) {
-        this.deadline = deadline;
+    public void setDeadlines(DeadlineList deadlines) {
+        this.deadlines = deadlines;
     }
 
     /**
@@ -166,7 +166,7 @@ public class Application {
      */
     @Override
     public String toString() {
-        return "Company: " + company + " | Role: " + role + " | Status: " + status + " | Deadline: " + deadline;
+        return "Company: " + company + " | Role: " + role + " | Status: " + status + " | Deadlines: " + deadlines;
     }
 
     /**
@@ -175,10 +175,11 @@ public class Application {
      * @return A storage-formatted string.
      */
     public String toStorageString() {
-        if (deadline == null) {
+        if (deadlines == null || deadlines.getSize() == 0) {
             return company + " | " + role + " | " + status;
         }
-        return company + " | " + role + " | " + status + " | " + deadline.toStorageString();
+        // Temporary compatibility (supports only one deadline); TODO update storage for multiple deadlines
+        return company + " | " + role + " | " + status + " | " + deadlines.getDeadlines().get(0).toStorageString();
     }
 
     /**

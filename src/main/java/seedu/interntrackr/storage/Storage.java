@@ -3,6 +3,7 @@ package seedu.interntrackr.storage;
 import seedu.interntrackr.exception.InternTrackrException;
 import seedu.interntrackr.model.Application;
 import seedu.interntrackr.model.Deadline;
+import seedu.interntrackr.model.DeadlineList;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -71,14 +72,17 @@ public class Storage {
 
                 status = Application.getNormalizedStatus(status);
 
-                // Load deadline if present (parts[3]=type, parts[4]=date, parts[5]=isDone)
+                // Load deadlines if present (parts[3]=type, parts[4]=date, parts[5]=isDone)
                 if (parts.length == 6) {
                     try {
                         String deadlineType = parts[3].trim();
                         LocalDate dueDate = LocalDate.parse(parts[4].trim());
                         boolean isDone = Boolean.parseBoolean(parts[5].trim());
                         Deadline deadline = new Deadline(deadlineType, dueDate, isDone);
-                        applications.add(new Application(parts[0], parts[1], status, deadline));
+                        ArrayList<Deadline> deadlines = new ArrayList<>();
+                        deadlines.add(deadline);
+                        DeadlineList deadlineList = new DeadlineList(deadlines);
+                        applications.add(new Application(parts[0], parts[1], status, deadlineList));
                         logger.fine("Loaded application with deadline at line " + lineNumber);
                     } catch (DateTimeParseException e) {
                         logger.warning("Invalid deadline date at line " + lineNumber + ": " + parts[4]);
