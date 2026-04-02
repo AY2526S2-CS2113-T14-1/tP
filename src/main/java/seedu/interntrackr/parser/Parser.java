@@ -32,6 +32,10 @@ public class Parser {
             throw new InternTrackrException("Input cannot be empty. Please enter a command.");
         }
 
+        if (fullCommand.contains("|")) {
+            throw new InternTrackrException("Input cannot contain the character '|'.");
+        }
+
         String[] parts = fullCommand.trim().split(" ", 2);
         String commandWord = parts[0].toLowerCase();
         String arguments = parts.length > 1 ? parts[1].trim() : "";
