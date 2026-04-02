@@ -368,7 +368,9 @@ public class Application {
             }
         }
 
-        sb.append(" | ").append(isArchived);
+        if (isArchived) {
+            sb.append(" | ").append(isArchived);
+        }
         return sb.toString();
     }
 

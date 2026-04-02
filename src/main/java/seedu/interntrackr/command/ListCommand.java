@@ -27,9 +27,20 @@ public class ListCommand extends Command {
         assert applications != null : "ApplicationList cannot be null";
         logger.info("Executing ListCommand. Total applications: " + applications.getSize());
 
-        ui.showMessage("Here are your internship applications:");
-
         int matchCount = 0;
+        for (int i = 1; i <= applications.getSize(); i++) {
+            Application app = applications.getApplication(i);
+            if (!app.isArchived()) {
+                matchCount++;
+            }
+        }
+
+        if (matchCount == 0) {
+            ui.showMessage("No applications found. Start adding some!");
+            return;
+        }
+
+        ui.showMessage("Here are your internship applications:");
         for (int i = 1; i <= applications.getSize(); i++) {
             Application app = applications.getApplication(i);
             if (!app.isArchived()) {
@@ -37,12 +48,7 @@ public class ListCommand extends Command {
                 if (app.getNote() != null && !app.getNote().isBlank()) {
                     ui.showMessage("   Note: " + app.getNote());
                 }
-                matchCount++;
             }
-        }
-
-        if (matchCount == 0) {
-            ui.showMessage("No applications found. Start adding some!");
         }
 
         logger.fine("Listed " + matchCount + " non-archived applications.");

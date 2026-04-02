@@ -103,14 +103,13 @@ public class Storage {
         Double salary = parseSalary(parts[INDEX_SALARY].trim(), lineNumber);
         String note = parseNote(parts[INDEX_NOTE].trim());
 
-        // The last field may be isArchived (true/false), or a deadline entry.
-        // isArchived is always the very last field if present.
+        // isArchived is only written when true, so only check for "true"
         boolean isArchived = false;
         int deadlineEndIndex = parts.length;
 
         String lastPart = parts[parts.length - 1].trim();
-        if (lastPart.equalsIgnoreCase("true") || lastPart.equalsIgnoreCase("false")) {
-            isArchived = Boolean.parseBoolean(lastPart);
+        if (lastPart.equalsIgnoreCase("true")) {
+            isArchived = true;
             deadlineEndIndex = parts.length - 1;
         }
 
