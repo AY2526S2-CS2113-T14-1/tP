@@ -82,7 +82,7 @@ Updates the status of an existing application.
 **Format:** `status INDEX s/STATUS`
 
 - Updates the application at `INDEX`.
-- `STATUS` should be one of the statuses your team supports (for example: Applied, Pending, Interview, Offer, Rejected).
+- `STATUS` should be one of the statuses supported (Applied, Pending, Interview, Offered, Rejected).
 
 **Examples:**
 
@@ -103,6 +103,19 @@ Shows only applications that match a given status.
 To clear the filter:
 
 **Format:** `filter clear`
+
+### Finding applications : `find`
+
+Finds applications whose company name or role contains the specified keyword.
+
+**Format:** `find KEYWORD`
+
+* The search is case-insensitive.
+* Both the company name and the role are searched.
+
+**Examples:**
+* `find Shopee`
+* `find "Software Engineer"`
 
 ### Adding a deadline : `deadline add`
 
@@ -155,6 +168,18 @@ Overview includes:
 - Count by status
 - Upcoming deadlines sorted by soonest first
 
+### Clearing all data : `clear`
+
+Clears all internship applications from the list.
+
+**Format:** `clear`
+
+* You will be prompted to type `yes` to confirm the action.
+* This action is irreversible and wipes all saved data.
+
+**Example:**
+* `clear`
+
 ### Exiting the program : `exit`
 
 Exits InternTrackr.
@@ -173,17 +198,19 @@ InternTrackr data is stored as a file in the home folder (for example, under a `
 
 ## Command Summary
 
-| Action | Format | Example |
-|---|---|---|
-| Help | `help` | `help` |
-| Add application | `add c/COMPANY r/ROLE` | `add c/"Shopee" r/"Backend Intern"` |
-| List applications | `list` | `list` |
-| Delete application | `delete INDEX` | `delete 2` |
-| Update status | `status INDEX s/STATUS` | `status 1 s/"Interview"` |
-| Filter by status | `filter s/STATUS` | `filter s/"Pending"` |
-| Clear filter | `filter clear` | `filter clear` |
-| Add deadline | `deadline add INDEX t/TYPE d/DATE [n/NOTES]` | `deadline add 1 t/Submission d/01-03-2026 n/"Need to reply by email"` |
-| List deadlines | `deadline list INDEX` | `deadline list 1` |
-| Mark deadline done | `deadline done INDEX i/DEADLINE_INDEX` | `deadline done 1 i/1` |
-| Overview | `overview` | `overview` |
-| Exit | `exit` | `exit` |
+| Action             | Format                                       | Example                                                               |
+|--------------------|----------------------------------------------|-----------------------------------------------------------------------|
+| Help               | `help`                                       | `help`                                                                |
+| Add application    | `add c/COMPANY r/ROLE`                       | `add c/"Shopee" r/"Backend Intern"`                                   |
+| List applications  | `list`                                       | `list`                                                                |
+| Find applications  | `find KEYWORD`                               | `find Shopee`                                                         |
+| Delete application | `delete INDEX`                               | `delete 2`                                                            |
+| Update status      | `status INDEX s/STATUS`                      | `status 1 s/"Interview"`                                              |
+| Filter by status   | `filter s/STATUS`                            | `filter s/"Pending"`                                                  |
+| Clear filter       | `filter clear`                               | `filter clear`                                                        |
+| Add deadline       | `deadline add INDEX t/TYPE d/DATE [n/NOTES]` | `deadline add 1 t/Submission d/01-03-2026 n/"Need to reply by email"` |
+| List deadlines     | `deadline list INDEX`                        | `deadline list 1`                                                     |
+| Mark deadline done | `deadline done INDEX i/DEADLINE_INDEX`       | `deadline done 1 i/1`                                                 |
+| Overview           | `overview`                                   | `overview`                                                            |
+| Clear all data     | `clear`                                      | `clear`                                                               |
+| Exit               | `exit`                                       | `exit`                                                                |
