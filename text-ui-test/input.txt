@@ -1,3 +1,4 @@
+help
 add c/Google r/Software Engineer
 add c/Meta r/Data Scientist
 add c/Apple r/Product Manager
@@ -51,6 +52,12 @@ offer 99 s/5000
 offer 1 s/five-thousand
 offer 1 s/-500
 offer 1 s/8500.50
+archive
+archive abc
+archive 99
+archive 1
+archive 1
+list
 overview
 delete
 delete abc
