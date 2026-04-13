@@ -36,9 +36,6 @@ Refer to the [Features](#features) section below for details.
 >
 > - Words in `UPPER_CASE` are parameters to be supplied by you.
     >   - Example: in `add c/COMPANY`, `COMPANY` can be `Shopee` or `"Shopee"` (with optional quotes).
-> - Items in square brackets are optional.
-    >   - Example: `deadline add ID t/TYPE d/DATE [n/NOTES]`
-> - Parameters can be in any order unless stated otherwise.
 > - For fields containing spaces, you may optionally wrap them in quotes `"..."` for clarity.
 > - Dates use the format `DD-MM-YYYY`.
 > - **CRITICAL:** Do not use the pipe character (`|`) anywhere in your inputs. It is strictly prohibited and will cause an error.
