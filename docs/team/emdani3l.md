@@ -18,40 +18,7 @@
 ### 2. Code Contributed
 * [Link to RepoSense Dashboard](https://nus-cs2113-ay2526-s2.github.io/tp-dashboard/?search=emdani3l&breakdown=true&sort=groupTitle%20dsc&sortWithin=title&since=2026-02-20T00%3A00%3A00&timeframe=commit&mergegroup=&groupSelect=groupByRepos&checkedFileTypes=docs~functional-code~test-code~other&filteredFileName=)
 
-### 3. Contributions to the User Guide (Extracts)
-
-> #### **Updating application status: `status`**
-> Updates the status of an existing application at the given index.
-> **Format:** `status INDEX s/STATUS`
-> * **Example:** `status 1 s/"Interview"`
->
-> #### **Filtering by status: `filter`**
-> Shows only applications matching a specific recruitment stage.
-> **Format:** `filter s/STATUS`
-> * **Example:** `filter s/"Pending"`
->
-> #### **Finding applications: `find`**
-> Finds applications whose company name or role contains a specified keyword.
-> **Format:** `find KEYWORD`
-> * **Example:** `find Shopee`
->
-> #### **Clearing all data: `clear`**
-> Wipes all applications from the list. Requires an explicit `yes` confirmation.
-> **Format:** `clear`
-
-### 4. Contributions to the Developer Guide (Extracts)
-
-> #### **Status and Filter Implementation**
-> These features utilize a **normalization engine** to provide a resilient user experience. When a user inputs a status, the system invokes `Application#getNormalizedStatus()` to convert it to a canonical format. This ensures consistent matching for the `filter` command and accurate data aggregation for the `overview` feature. The filtering logic also performs a pre-search archival check via `Application#isArchived()` to maintain view consistency.
->
-> #### **Find Feature Implementation**
-> The `find` command performs a partial-match search across both **Company** and **Role** fields. The logic iterates through the `ApplicationList` and uses lowercase comparison to maintain search flexibility. A key technical challenge was preserving the **original 1-based indices** in the filtered output, which I solved by tracking and displaying the application's actual position in the active list alongside the search result.
->
-> #### **Clear Feature Implementation**
-> To prevent catastrophic data loss, the `clear` command implements a **two-step confirmation workflow**. The `ClearCommand#execute()` method triggers a blocking UI prompt via `Ui#readCommand()` that waits for a specific "yes" input. This design choice prioritizes data safety over execution speed, ensuring that a simple typo cannot accidentally delete a user's entire application history.
-
-
-### 5. Contributions to team-based tasks
+### 3. Contributions to team-based tasks
 
 * **During Tutorials**:
   * Encouraged group to attempt in class activities (UML diagram drawings)
@@ -60,7 +27,7 @@
   * Alerted groupmates when they had outstanding task(s) due soon
 
 
-### 6. Review/mentoring contributions
+### 4. Review/mentoring contributions
 
 **Some PRs Reviewed**
 
@@ -69,3 +36,17 @@
 *(https://github.com/AY2526S2-CS2113-T14-1/tp/pull/44#pullrequestreview-3967573085)*
 *(https://github.com/AY2526S2-CS2113-T14-1/tp/pull/18#pullrequestreview-3934536109*)
 ---
+### 5. Contributions to the User Guide
+
+For the User Guide, I was responsible for authoring the documentation for the application's core search, filtering, and state-management commands (`status`, `filter`, `find`, and `clear`). My focus was on making the CLI intuitive for end-users:
+* **Clear Formatting & Examples:** Structured the documentation to provide immediate value, including explicit command formats, parameter explanations, and practical examples for everyday use.
+* **Edge Case & Constraint Documentation:** Clearly outlined system constraints, such as the strict whitelist of accepted inputs for the `status` command and how the `find` command handles case-insensitivity across both company and role fields.
+* **Safety Instructions:** Wrote detailed, step-by-step instructions for the destructive `clear` command, ensuring users fully understand the two-step confirmation process required to prevent accidental data loss.
+
+### 6. Contributions to the Developer Guide
+
+I authored the technical documentation detailing the architecture, implementation logic, and design rationale behind my assigned features. My contributions were aimed at helping future developers understand the codebase and the engineering trade-offs made:
+* **Implementation Logic:** Documented the complete lifecycle of the `status`, `filter`, `find`, and `clear` commands. I detailed the separation of concerns between the Parser (input validation and prefix extraction) and the Command (execution and model updates).
+* **UML Diagrams:** Designed and integrated complex visual aids, including Sequence Diagrams illustrating the strict validation-then-update pipelines, and Object Diagrams showing how the system state isolates active versus archived applications during a `filter` operation.
+* **Design Considerations:** Justified key architectural decisions. I explained the reasoning behind utilizing a normalization engine for the `status` command to ensure data integrity, the choice to exclude archived applications from the `filter` view for a cleaner user experience, and the necessity of a blocking UI prompt for the `clear` command to prioritize data safety over execution speed.
+
