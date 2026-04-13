@@ -244,6 +244,9 @@ Filter cleared. Showing all applications:
 1. Company: Shopee | Role: Backend Intern | Status: Pending | ...
 2. Company: Grab | Role: Data Analyst Intern | Status: Offered | ...
 ```
+> **Note:** The `filter` command only affects the display. For all commands that take an `INDEX`
+> (e.g., `status`, `contact`, `offer`, `archive`), the index always corresponds to the position
+> shown in the default `list` output, not the filtered view.
 
 ### Finding applications : `find`
 
@@ -330,8 +333,8 @@ Shows a quantitative summary of your internship applications and current statuse
 
 Overview includes:
 
-- Total number of tracked applications.
-- Count of applications broken down by their current status.
+- Total number of tracked applications (active and archived).
+- Count of active applications broken down by their current status.
 
 ### Clearing all data : `clear`
 
