@@ -175,7 +175,7 @@ To handle applications accumulating large numbers of deadlines without clutterin
 
 ### Deadline Feature Implementation
 
-**Author:** Chun Nga Lee
+**Author:** Eugenia
 
 ---
 
