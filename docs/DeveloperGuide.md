@@ -359,7 +359,7 @@ When `DeadlineDoneCommand#execute()` is called:
 
 The sequence diagram below shows two-level validation before mutation:
 
-![Deadline Done Sequence Diagram](images/DeadlineDoneSequence.png)
+![Deadline Done Sequence Diagram](images/EugeniaDeadlineDoneCommandSequence.png)
 
 **4.2 Parsing Logic**
 
